@@ -79,6 +79,11 @@ utility::string_t ApiClient::parameterToString(const utility::datetime &value)
     return utility::conversions::to_string_t(value.to_string(utility::datetime::ISO_8601));
 }
 
+utility::string_t ApiClient::parameterToString(const std::shared_ptr<utility::string_t> &value)
+{
+    return utility::conversions::to_string_t(*value);
+}
+
 pplx::task<web::http::http_response> ApiClient::callApi(
     const utility::string_t& path,
     const utility::string_t& method,
